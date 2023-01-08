@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Áudios motivacionais </title>
+    <style>
+          @import url('https://fonts.googleapis.com/css2?family=Aladin&family=Grenze+Gotisch:wght@900&family=Jolly+Lodger&family=New+Rocker&display=swap');
+        body{
+            background: black;
+        }
+        h1 ,h2{
+            font-family: 'Aladin';
+            font-size: 35px;
+  text-align: center;
+  color: #26ff00;
+  text-shadow: 0px 0px 12px red, -1px 0px blue, 0px 1px yellow, 1px 0px white,0px -1px purple;
+ align: center;
+ 
+        }
+        button{
+            background: #8b80f9;
+            font-size: 35px;
+            font-family: 'Aladin';
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #8b80f9, 0 0 25px #8b80f9, 0 0 50px #8b80f9,
+    0 0 100px #8b80f9;
+    text-align: center;
+        }
+        .p{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+<div class="p">
+    <h1>Seja bem bindo ao meu site de áudios motivacionais.</h1>
+    <h2>Almente o volume e curta a vibe ✓</h2>
+    <button data-botao="gemido">Áudio motivacional</button><br><br>
+    
+       <button data-botao="pika">Isso e lindo cara</button>
+       <br><br>
+    
+       <button data-botao="elon">Motivacional do elon musk😎</button>
+    
+</div>
+
+<audio data-musica="gemido"
+        src="gremido.mp3"></audio>
+        
+      <audio  data-musica="pika"
+        src="pika.mp3"></audio>
+        <audio  data-musica="elon"
+        src="elon.mp3"></audio>
+
+<script>
+  let elementosBotoes = document.querySelectorAll("button");
+
+elementosBotoes.forEach((botaoCorrente) => {
+  botaoCorrente.addEventListener("click", () => {
+    console.log(botaoCorrente.dataset.botao);
+    let musicaParaTocar = document.querySelector(
+      `audio[data-musica="${botaoCorrente.dataset.botao}"]`
+    );
+    document
+      .querySelectorAll("audio")
+      .forEach((musicaCorrente) => musicaCorrente.pause());
+    musicaParaTocar.currentTime = 0;
+    musicaParaTocar.play();
+  });
+    });
+;
+</script>
